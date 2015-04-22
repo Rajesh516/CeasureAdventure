@@ -26,6 +26,9 @@ public class LevelManager : MonoBehaviour
 	void Start()
 	{
 		coins = 0;	
+		int torpedoExploded = 0;
+		int crocodileExploded = 0;
+		int skunkExploded = 0;
         //Calibrates the myInstance static variable
         instances++;
 
@@ -43,6 +46,9 @@ public class LevelManager : MonoBehaviour
 	public void StartLevel()
 	{
 		coins = 0;
+		int torpedoExploded = 0;
+		int crocodileExploded = 0;
+		int skunkExploded = 0;
         StartCoroutine(LevelGenerator.Instance.StartToGenerate(1.25f, 3));	//Start the level generator
         PlayerManager.Instance.ResetStatus(true);							//Reset player status, and move the submarine to the starting position
         GUIManager.Instance.ShowStartPowerUps();								//Show the power up activation GUI
@@ -117,7 +123,9 @@ public class LevelManager : MonoBehaviour
 	public void Restart()
 	{
 		coins = 0;										//Reset coin numbers
-
+		int torpedoExploded = 0;
+		int crocodileExploded = 0;
+		int skunkExploded = 0;
         LevelGenerator.Instance.Restart(true);					//Restart level generator
         PlayerManager.Instance.ResetStatus(true);				//Reset player status
         MissionManager.Instance.Save();							//Save mission status
