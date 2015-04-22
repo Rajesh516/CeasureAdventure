@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class PlayerManager : MonoBehaviour 
 {
+	public bool amIAlive;
 	public Texture2D[] subTextures;										//The array containing the sub and sub damaged textures
 	public Renderer subMaterial;										//A link to the sub material
 	
@@ -75,6 +76,7 @@ public class PlayerManager : MonoBehaviour
 	//Called at the beginning the game
 	void Start()
 	{
+		amIAlive = true;
 		CanJumpSetter (true);
         //Calibrates the myInstance static variable
         instances++;
@@ -611,6 +613,7 @@ public class PlayerManager : MonoBehaviour
 	//The sink effects
 	IEnumerator SinkEffects()
 	{
+		amIAlive = false;
 		//Wait for 0.5 seconds, and stop the level scrolling in 2.5 seconds
 		yield return new WaitForSeconds(0.5f);
         LevelGenerator.Instance.StartCoroutine("StopScrolling", 2.5f);
@@ -742,7 +745,7 @@ public class PlayerManager : MonoBehaviour
 		//Disable the bubble particles
 		bubbles.Clear();
 		bubbles.Stop();
-
+		amIAlive = moveToStart;
 		//Reset variables
 		speed = 0;
 		crashed = false;
@@ -822,6 +825,7 @@ public class PlayerManager : MonoBehaviour
 	//Use revive
 	public IEnumerator Revive()
 	{
+		amIAlive = true;
 		//If the submarine is not reviving
 		if (!inRevive)
 		{
