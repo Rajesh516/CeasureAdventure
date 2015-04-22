@@ -25,6 +25,7 @@ public class LevelManager : MonoBehaviour
 	//Called at the start of the game
 	void Start()
 	{
+		coins = 0;	
         //Calibrates the myInstance static variable
         instances++;
 
@@ -41,6 +42,7 @@ public class LevelManager : MonoBehaviour
 	//Called when the level is started
 	public void StartLevel()
 	{
+		coins = 0;
         StartCoroutine(LevelGenerator.Instance.StartToGenerate(1.25f, 3));	//Start the level generator
         PlayerManager.Instance.ResetStatus(true);							//Reset player status, and move the submarine to the starting position
         GUIManager.Instance.ShowStartPowerUps();								//Show the power up activation GUI

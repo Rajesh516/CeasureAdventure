@@ -399,6 +399,7 @@ public class GUIManager : MonoBehaviour
 		button.transform.localScale = scale * 1.25f;
 		
 		//Activate the correct function
+		print ("-------------" + button.name);
 		switch (button.name)
 		{
 			case "PauseShowButton":
@@ -413,7 +414,10 @@ public class GUIManager : MonoBehaviour
 				StartCoroutine("Restart");
 				break;
 		case "Skip":
-			StartCoroutine("Restart");
+			//if (PlayerManager.Instance.HasRevive())
+				LevelManager.Instance.Revive();
+			UIManager.Instance.ShowInGameUIScreen();
+			//StartCoroutine("Restart");
 			break;
 			
 			case "Quit":
@@ -497,7 +501,7 @@ public class GUIManager : MonoBehaviour
         int currentCoins = LevelManager.Instance.Coins();
 
 		//Show the finish menu
-		StartCoroutine(FadeScreen(0.2f, 0.5f));
+		//StartCoroutine(FadeScreen(0.2f, 0.5f));
 		UIManager.Instance.ShowGameOverScreen ();
 
 		//Apply the data to the finish menu
@@ -840,7 +844,7 @@ public class GUIManager : MonoBehaviour
 	{
 		yield return null;
 		//Show the revive button
-		StartCoroutine(MoveMenu(startPowerUps[3].transform, startPowerUps[3].transform.localPosition.x, -29.5f, 0.4f, false));
+		//StartCoroutine(MoveMenu(startPowerUps[3].transform, startPowerUps[3].transform.localPosition.x, -29.5f, 0.4f, false));
 		
 		//Variable to detect activation
 		bool activated = false;
