@@ -129,7 +129,7 @@ public class ObstacleScript : MonoBehaviour {
 		}
 	}
 
-	public void PlayerCollidedWithTop()
+	/* void PlayerCollidedWithTop()
 	{
 		print("Calling------------");
 		Transform expParent = transform;
@@ -155,5 +155,50 @@ public class ObstacleScript : MonoBehaviour {
 		expParent.collider.enabled = false;
 		#endif
 
+	}*/
+
+	public void AnimalExplosion(){
+		Transform expParent = transform;
+		//Transform weaponTransform = colli.transform;
+		if (expParent.name == "Torpedo")
+		{
+			//Notify torpedo manager
+			expParent.transform.parent.gameObject.GetComponent<Torpedo>().TargetHit(true);
+			LevelManager.Instance.TorpedoExplodedSetter();
+		}
+		//If the sub collided with something else
+		else
+		{
+			if(flyingObstacle)
+			{
+				foreach (Transform childTransform in transform)
+				{
+					if(childTransform.GetComponent<MovingAnimals>()!=null)
+					{
+						childTransform.GetComponent<MeshRenderer>().enabled = false;
+						if(childTransform.gameObject.name == "SkunkBody")
+							LevelManager.Instance.SkunkExplodedSetter();
+						if(childTransform.gameObject.name == "CrocodileBody")
+							LevelManager.Instance.CrocodileExplodedSetter();
+					}
+				}
+				if(expParent.name== "Skunk")
+					LevelManager.Instance.SkunkExplodedSetter();
+				if(expParent.name== "Crocodile")
+					LevelManager.Instance.CrocodileExplodedSetter();
+			}
+			//Find the particle child, and play it
+			ParticleSystem explosion = expParent.FindChild("ExplosionParticle").gameObject.GetComponent("ParticleSystem") as ParticleSystem;
+			explosion.Play();
+			//Disable the object's renderer and collider
+			#if UNITY_5
+			expParent.GetComponent<Renderer>().enabled = false;
+			expParent.GetComponent<Collider>().enabled = false;
+			#else
+			expParent.renderer.enabled = false;
+			expParent.collider.enabled = false;
+			#endif
+			
+		}
 	}
 }

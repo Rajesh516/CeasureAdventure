@@ -10,7 +10,7 @@ public class HeartVisibleScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		print ("gameObject.renderer.enabled--------" + PlayerManager.Instance.amIAlive);
+		//print ("gameObject.renderer.enabled--------" + PlayerManager.Instance.amIAlive);
 		if (PlayerManager.Instance.amIAlive)
 						gameObject.transform.localScale = new Vector3 (10.2f, 9.1f, 1.0f);
 		else

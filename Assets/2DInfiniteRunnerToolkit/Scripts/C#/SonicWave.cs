@@ -9,7 +9,7 @@ public class SonicWave : MonoBehaviour
 	void OnTriggerEnter (Collider other)
 	{
 		//If it is an obstacle
-		if (other.transform.name == "Mine" || other.transform.name == "Chain" || other.transform.name == "MineChain" || other.transform.name == "Laser" || other.transform.name == "LaserBeam")
+		if (other.transform.name == "Mine" || other.transform.name == "Chain" || other.transform.name == "MineChain" || other.transform.name == "Laser" || other.transform.name == "LaserBeam"|| other.transform.name == "Skunkin"|| other.transform.name == "Crocodile")
 		{
 			//Explode it
 			PlayExplosion (other.transform);
