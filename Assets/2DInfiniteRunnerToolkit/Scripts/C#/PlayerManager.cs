@@ -692,7 +692,6 @@ public class PlayerManager : MonoBehaviour
 	//Called from the Input manager
 	public void MoveUp()
 	{
-//		print ("------CanJump----" + canJump);
 		//ShootWeapon ();
 		if (canJump && subEnabled) 
 		{
@@ -893,6 +892,7 @@ public class PlayerManager : MonoBehaviour
 
 	public void CanJumpSetter(bool temp)
 	{
+		print ("------CanJump----" + temp);
 		canJump = temp;
 	}
 }

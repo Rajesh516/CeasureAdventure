@@ -14,7 +14,7 @@ public class AnimalTop : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider colli){
-		if (colli.gameObject.tag == "Player") {
+		if (colli.gameObject.tag == "Player" && PlayerManager.Instance.amIAlive && gameObject.renderer.enabled) {
 			transform.parent.GetComponent<ObstacleScript>().AnimalExplosion();	
 		}
 	}

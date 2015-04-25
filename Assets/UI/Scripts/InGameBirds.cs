@@ -10,11 +10,6 @@ public class InGameBirds : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(gameObject.name == "BirdHit")
 			textMesh.text = "" + LevelManager.Instance.TorpedoExplodedGetter ();
-		if (gameObject.name == "CrocHit")
-						textMesh.text = "" + LevelManager.Instance.CrocodileExplodedGetter ();
-		if (gameObject.name == "SkunkHit")
-						textMesh.text = "" + LevelManager.Instance.SkunkExplodedGetter ();
 	}
 }

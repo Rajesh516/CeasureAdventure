@@ -82,10 +82,10 @@ public class ObstacleScript : MonoBehaviour {
 						if(childTransform.GetComponent<MovingAnimals>()!=null)
 						{
 							childTransform.GetComponent<MeshRenderer>().enabled = false;
-							if(childTransform.gameObject.name == "SkunkBody")
-								LevelManager.Instance.SkunkExplodedSetter();
-							if(childTransform.gameObject.name == "CrocodileBody")
-								LevelManager.Instance.CrocodileExplodedSetter();
+							//if(childTransform.gameObject.name == "SkunkBody")
+							//	LevelManager.Instance.SkunkExplodedSetter();
+							//if(childTransform.gameObject.name == "CrocodileBody")
+							//	LevelManager.Instance.CrocodileExplodedSetter();
 						}
 					}
 					if(expParent.name== "Skunk")
@@ -176,10 +176,10 @@ public class ObstacleScript : MonoBehaviour {
 					if(childTransform.GetComponent<MovingAnimals>()!=null)
 					{
 						childTransform.GetComponent<MeshRenderer>().enabled = false;
-						if(childTransform.gameObject.name == "SkunkBody")
-							LevelManager.Instance.SkunkExplodedSetter();
-						if(childTransform.gameObject.name == "CrocodileBody")
-							LevelManager.Instance.CrocodileExplodedSetter();
+						//if(childTransform.gameObject.name == "SkunkBody")
+						//	LevelManager.Instance.SkunkExplodedSetter();
+						//if(childTransform.gameObject.name == "CrocodileBody")
+						//	LevelManager.Instance.CrocodileExplodedSetter();
 					}
 				}
 				if(expParent.name== "Skunk")
