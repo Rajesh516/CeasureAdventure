@@ -613,4 +613,9 @@ public class LevelGenerator : MonoBehaviour
 		scrollMiddle = scrollBackg * 2;
 		scrollForg = scrollBackg * 5f;
 	}
+
+	public float ForgroundSpeedGetter()
+	{
+		return scrollForg;		
+	}
 }

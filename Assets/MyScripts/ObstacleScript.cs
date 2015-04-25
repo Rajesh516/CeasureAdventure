@@ -34,7 +34,7 @@ public class ObstacleScript : MonoBehaviour {
 	void Update () {
 		if (flyingObstacle) {
 			if(startMovingAnimals)
-			transform.localPosition  += new Vector3(5.0f*Time.deltaTime,0,0); 
+				transform.localPosition  += new Vector3(5.0f*Time.deltaTime,0,0); 
 		}
 	
 	}

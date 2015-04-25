@@ -40,6 +40,7 @@ public class PowerUp : MonoBehaviour
 			nextPos.y = originalPos + offset;
 			
 			//Calculate new horizontal position
+			horizontalSpeed = LevelGenerator.Instance.ForgroundSpeedGetter();
 			nextPos.x -= horizontalSpeed * Time.deltaTime;
 			
 			//Apply new position
