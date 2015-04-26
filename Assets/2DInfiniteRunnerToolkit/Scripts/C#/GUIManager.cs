@@ -193,9 +193,11 @@ public class GUIManager : MonoBehaviour
 
 	void OnBackClick() {
 		if (showPause)
-			UIManager.Instance.ShowPauseScreen ();
-		else
-			UIManager.Instance.ShowMainMenuScreen ();
+						UIManager.Instance.ShowPauseScreen ();
+				else {
+						StartCoroutine("QuitToMain");
+						UIManager.Instance.ShowMainMenuScreen ();
+				}
 	}
 
 	//Buy a speed power up, if has the money
